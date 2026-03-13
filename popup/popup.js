@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ], (result) => {
 
         showTimeTable.checked = result.showTimeTable ?? true
-        hideGrades.checked = result.hideGrades ?? false
+        hideGrades.checked = result.hideGrades ?? true
         preventDownloads.checked = result.preventDownloads ?? true
 
     })
