@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>SIGAA+</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <img src="../icons/icon.png" class="logo" />
+      <h1>SIGAA+</h1>
+    </header>
+
+    <div class="option">
+      <label class="switch">
+        <input type="checkbox" id="showTimeTable" />
+        <span class="slider"></span>
+      </label>
+      <span class="label-text">Mostrar horário</span>
+    </div>
+
+    <div class="option">
+      <label class="switch">
+        <input type="checkbox" id="hideGrades" />
+        <span class="slider"></span>
+      </label>
+      <span class="label-text">Ocultar notas por padrão</span>
+    </div>
+
+    <div class="option">
+      <label class="switch">
+        <input type="checkbox" id="preventDownloads" />
+        <span class="slider"></span>
+      </label>
+      <span class="label-text">Prevenir downloads (reload)</span>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
