@@ -352,55 +352,51 @@ function populateScheduleTable(globalSchedule, startDay) {
 }
 
 function removeTimeTable() {
-  const timeTable = document.getElementById("schedule-wrapper")
-  timeTable.remove()
+  const timeTable = document.getElementById("schedule-wrapper");
+  timeTable.remove();
 }
 
 function init() {
   // Checa as preferências
   chrome.storage.local.get(["showTimeTable"], (result) => {
-    if (!result.showTimeTable) {
-      return;
+    if (result.showTimeTable) {
+      const classesRows = extractClassesRows();
+
+      if (classesRows == null) {
+        return; // Caso não o usúario não esteja no portal principal
+      }
+
+      const allClasses = classesRows.map((tr) => extractClassInfo(tr));
+
+      globalThis.globalSchedule = buildGlobalSchedule(allClasses);
+      createTimeTable();
+      first_week = Object.keys(globalSchedule)[0];
+      const today = new Date();
+
+      if (today > new Date(first_week)) {
+        first_week = today.toISOString().split("T")[0]; // Pega a semana atual ou a primeira semana não vazia (Caso a atual esteja vazia)
+      }
+
+      weekInput = document.getElementById("week-input");
+      weekInput.value = getISOWeekFromDate(first_week);
+      weekInput.dispatchEvent(new Event("change", { bubbles: true }));
     }
   });
-  const classesRows = extractClassesRows();
-
-  if (classesRows == null) {
-    return; // Caso não o usúario não esteja no portal principal
-  }
-
-  const allClasses = classesRows.map((tr) => extractClassInfo(tr));
-
-  globalThis.globalSchedule = buildGlobalSchedule(allClasses);
-  createTimeTable();
-  first_week = Object.keys(globalSchedule)[0];
-  const today = new Date();
-
-  if (today > new Date(first_week)) {
-    first_week = today.toISOString().split("T")[0]; // Pega a semana atual ou a primeira semana não vazia (Caso a atual esteja vazia)
-  }
-
-  weekInput = document.getElementById("week-input");
-  weekInput.value = getISOWeekFromDate(first_week);
-  weekInput.dispatchEvent(new Event("change", { bubbles: true }));
 }
 
 // Listener para modificações das preferências
 chrome.storage.onChanged.addListener((changes, area) => {
+  if (area !== "local") return;
 
-    if (area !== "local") return
+  if (changes.showTimeTable) {
+    const enabled = changes.showTimeTable.newValue;
 
-    if (changes.showTimeTable) {
-
-        const enabled = changes.showTimeTable.newValue
-
-        if (enabled) {
-            init()
-        } else {
-            removeTimeTable()
-        }
-
+    if (enabled) {
+      init();
+    } else {
+      removeTimeTable();
     }
-})
+  }
+});
 
 init();
