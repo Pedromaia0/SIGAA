@@ -1,4 +1,4 @@
-const browserAPI = globalThis.browser ?? globalThis.chrome;
+var browserAPI = globalThis.browser ?? globalThis.chrome;
 
 // Inicializa as variáveis de preferência
 browserAPI.runtime.onInstalled.addListener(() => {
