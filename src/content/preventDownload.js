@@ -26,7 +26,7 @@ function patchDownloadLinks() {
     link.addEventListener(
       "click",
       async (event) => {
-        // BLOCK JSF completely
+        // Bloqueia completamente o JSF
         event.preventDefault();
         event.stopPropagation();
         event.stopImmediatePropagation();
@@ -68,12 +68,12 @@ function patchDownloadLinks() {
         window.open(url, "_blank");
       },
       true,
-    ); // CAPTURE PHASE (crítico)
+    );
   }
 }
 
 // Listener para modificações das preferências
-chrome.storage.onChanged.addListener((changes, area) => {
+browserAPI.storage.onChanged.addListener((changes, area) => {
   if (area !== "local") return;
 
   if (changes.preventDownloads) {
@@ -82,7 +82,7 @@ chrome.storage.onChanged.addListener((changes, area) => {
 });
 
 // Checa as preferências
-chrome.storage.local.get(["preventDownloads"], (result) => {
+browserAPI.storage.local.get(["preventDownloads"], (result) => {
   if (result.preventDownloads) {
     patchDownloadLinks();
   }

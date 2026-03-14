@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hideGrades = document.getElementById("hideGrades")
     const preventDownloads = document.getElementById("preventDownloads")
 
-    chrome.storage.local.get([
+    browserAPI.storage.local.get([
         "showTimeTable",
         "hideGrades",
         "preventDownloads"
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 preventDownloads: preventDownloads.checked
             }
 
-            chrome.storage.local.set(prefs)
+            browserAPI.storage.local.set(prefs)
 
         })
 

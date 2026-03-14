@@ -358,7 +358,7 @@ function removeTimeTable() {
 
 function init() {
   // Checa as preferências
-  chrome.storage.local.get(["showTimeTable"], (result) => {
+  browserAPI.storage.local.get(["showTimeTable"], (result) => {
     if (result.showTimeTable) {
       const classesRows = extractClassesRows();
 
@@ -385,7 +385,7 @@ function init() {
 }
 
 // Listener para modificações das preferências
-chrome.storage.onChanged.addListener((changes, area) => {
+browserAPI.storage.onChanged.addListener((changes, area) => {
   if (area !== "local") return;
 
   if (changes.showTimeTable) {

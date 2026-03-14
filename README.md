@@ -2,7 +2,7 @@
 
 <img src="icons/icon.png" alt="Description" width="200" height="200">
 
-Extensão para [navegadores baseados no Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)#Browsers_based_on_Chromium) que adiciona melhorias de usabilidade ao **SIGAA**.
+Extensão para [navegadores baseados no Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)#Browsers_based_on_Chromium) e Firefox que adiciona melhorias de usabilidade ao **SIGAA**.
 O objetivo é corrigir pequenas limitações da interface original e adicionar utilidades que facilitam o uso diário do sistema.
 
 > Este projeto não possui vínculo oficial com o SIGAA ou com qualquer instituição.
@@ -54,8 +54,10 @@ A funcionalidade aplica um **blur nas notas**, podendo ser ativada ou desativada
 
 # Instalação no Navegador
 
-A extensão ainda não está publicada na Chrome Web Store.
-Para instalar manualmente:
+## Chrome
+A extensão está publicada na Chrome Web Store e pode ser baixada [AQUI](https://chromewebstore.google.com/detail/sigaa+/mhchdndobohnjjcmmlmpmhgligblhmbd).
+
+Para instalar manualmente no chrome:
 
 1. Baixe ou clone este repositório:
 
@@ -63,17 +65,45 @@ Para instalar manualmente:
 git clone https://github.com/Pedromaia0/SIGAA.git
 ```
 
-2. Abra o Navegador e acesse:
+2. Renomeie `manifest.chrome.json` para `manifest.json`
+
+3. Abra o Navegador e acesse:
 
 ```
 chrome://extensions
 ```
 
-3. Ative o **Modo do desenvolvedor** (canto superior direito).
+4. Ative o **Modo do desenvolvedor** (canto superior direito).
 
-4. Clique em **Carregar sem compactação**.
+5. Clique em **Carregar sem compactação**.
 
-5. Selecione a pasta do projeto da extensão.
+6. Selecione a pasta do projeto da extensão.
+
+Após isso a extensão estará ativa no navegador.
+
+## Firefox
+
+Para instalar manualmente no firefox:
+
+1. Baixe ou clone este repositório:
+
+```
+git clone https://github.com/Pedromaia0/SIGAA.git
+```
+
+2. Renomeie `manifest.firefox.json` para `manifest.json`
+
+3. Abra o Navegador e acesse:
+
+```
+about:debugging
+```
+
+4. Clique em  **Este Firefox** (canto superior esquerdo).
+
+5. Clique em **Carregar extensão temporária**.
+
+6. Selecione a pasta do projeto da extensão.
 
 Após isso a extensão estará ativa no navegador.
 

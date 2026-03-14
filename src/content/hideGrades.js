@@ -1,5 +1,5 @@
-const eyeON = chrome.runtime.getURL("icons/eye-on.svg");
-const eyeOFF = chrome.runtime.getURL("icons/eye-off.svg");
+const eyeON = browserAPI.runtime.getURL("../../icons/eye-on.svg");
+const eyeOFF = browserAPI.runtime.getURL("../../icons/eye-off.svg");
 
 function setBlurGrades(enable) {
   const agenda = document.getElementById("perfil-docente");
@@ -35,7 +35,7 @@ function addToggleBTN() {
   }
 
   // Checa as preferências
-  chrome.storage.local.get(["hideGrades"], (result) => {
+  browserAPI.storage.local.get(["hideGrades"], (result) => {
     const active = result.hideGrades;
 
     const agenda = els[1];
@@ -62,7 +62,7 @@ function addToggleBTN() {
 }
 
 // Listener para modificações das preferências
-chrome.storage.onChanged.addListener((changes, area) => {
+browserAPI.storage.onChanged.addListener((changes, area) => {
   if (area !== "local") return;
 
   if (changes.hideGrades) {

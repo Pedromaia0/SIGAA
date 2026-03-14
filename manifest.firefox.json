@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "SIGAA+",
+  "version": "1.0.0",
+  "description": "Adiciona funcionalidades para o SIGAA",
+
+  "icons": {
+    "128": "icons/icon128.png",
+    "750": "icons/icon.png"
+  },
+
+  "action": {
+    "default_popup": "src/popup/popup.html"
+  },
+
+  "permissions": ["storage"],
+
+  "background": {
+    "scripts": ["src/background/background.js"]
+  },
+
+  "host_permissions": [
+    "https://sigaa.ufrn.br/*",
+    "https://arquivos.info.ufrn.br/*"
+  ],
+
+  "content_scripts": [
+    {
+      "js": [
+        "src/utils/constants.js",
+        "src/utils/dateUtils.js",
+        "src/api/browserApi.js",
+        "src/content/timeTable.js",
+        "src/content/hideGrades.js"
+      ],
+      "matches": [
+        "https://sigaa.ufrn.br/sigaa/portais/discente/discente.jsf"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://sigaa.ufrn.br/sigaa/ava/*",
+        "https://sigaa.ufrn.br/sigaa/portais/discente/discente.jsf"
+      ],
+      "js": [
+        "src/api/browserApi.js",
+        "src/content/preventDownload.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/eye-on.svg",
+        "icons/eye-off.svg"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "sigaa-plus@extension"
+    }
+  }
+}
