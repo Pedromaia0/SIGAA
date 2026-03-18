@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "SIGAA+",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Adiciona funcionalidades para o SIGAA",
 
   "icons": {
@@ -36,11 +36,12 @@
       "run_at": "document_end"
     },
     {
-      "matches": [
-        "https://sigaa.ufrn.br/sigaa/ava/*",
-        "https://sigaa.ufrn.br/sigaa/portais/discente/discente.jsf"
+      "matches": ["https://sigaa.ufrn.br/sigaa/*"],
+      "js": [
+        "src/api/browserApi.js",
+        "src/content/preventDownload.js",
+        "src/content/patchJsfLinks.js"
       ],
-      "js": ["src/api/browserApi.js", "src/content/preventDownload.js"],
       "run_at": "document_idle"
     }
   ],
