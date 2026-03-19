@@ -37,7 +37,7 @@
       "run_at": "document_end"
     },
     {
-      "matches": ["https://sigaa.ufrn.br/sigaa/ava/"],
+      "matches": ["https://sigaa.ufrn.br/sigaa/*"],
       "js": [
         "src/api/browserApi.js",
         "src/content/preventDownload.js",
