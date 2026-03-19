@@ -31,6 +31,25 @@ function parseJsfOnclick(onclickStr) {
   return { formId, params };
 }
 
+// Cria o link único para cada página
+function buildFullHref(actionUrl, originalForm, params) {
+  const url = new URL(actionUrl, window.location.origin);
+
+  const formData = new FormData(originalForm);
+
+  // Copia TODOS os campos corretamente
+  for (const [key, value] of formData.entries()) {
+    url.searchParams.append(key, value);
+  }
+
+  // Sobrescreve com params do jsfcljs
+  for (const key in params) {
+    url.searchParams.set(key, params[key]);
+  }
+
+  return url.toString();
+}
+
 // Adiciona o eventListener para overloading
 function patchJsfLink(element) {
   const onclick = element.getAttribute("onclick");
@@ -45,8 +64,9 @@ function patchJsfLink(element) {
 
   const actionUrl = originalForm.action;
 
-  // HREF fallback
-  element.setAttribute("href", actionUrl);
+  // Para que funcione também com 'Abrir em nova guia'
+  const fullHref = buildFullHref(actionUrl, originalForm, params);
+  element.setAttribute("href", fullHref);
   element.style.cursor = "pointer";
 
   element.removeAttribute("onclick");
