@@ -1,6 +1,6 @@
 # SIGAA+
 
-<img src="icons/icon.png" alt="Description" width="200" height="200">
+<img src="assets/icons/icon.png" alt="Description" width="200" height="200">
 
 Extensão para [navegadores baseados no Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)#Browsers_based_on_Chromium) e Firefox que adiciona melhorias de usabilidade ao **SIGAA**.
 O objetivo é corrigir pequenas limitações da interface original e adicionar utilidades que facilitam o uso diário do sistema.
@@ -49,6 +49,15 @@ Isso pode ser útil em situações como:
 * usar o sistema em ambientes públicos
 
 A funcionalidade aplica um **blur nas notas**, podendo ser ativada ou desativada instantaneamente.
+
+---
+
+## Personalização
+
+Permite personalizar as páginas do sigaa:
+
+* modo escuro
+* Papel de parede personalizável
 
 ---
 
