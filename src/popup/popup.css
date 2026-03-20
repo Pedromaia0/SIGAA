@@ -11,7 +11,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
 
 .logo {
@@ -25,6 +25,30 @@ h1 {
     font-weight: 600;
 }
 
+/* Navbar superior */
+.navbar {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 6px;
+    font-size: 13px;
+    background: #e5e7eb;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.tab-button.active {
+    background: #2563eb;
+    color: white;
+}
+
+/* Opções existentes */
 .option {
     display: flex;
     align-items: center;
@@ -37,7 +61,6 @@ h1 {
 }
 
 /* Switch moderno */
-
 .switch {
     position: relative;
     width: 36px;

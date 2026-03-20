@@ -10,7 +10,8 @@ browserAPI.runtime.onInstalled.addListener(() => {
             browserAPI.storage.local.set({
                 showTimeTable: true,
                 hideGrades: true,
-                preventDownloads: true
+                preventDownloads: true,
+                darkMode: false
             })
 
         }

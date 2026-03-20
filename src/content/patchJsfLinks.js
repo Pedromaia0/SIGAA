@@ -38,9 +38,9 @@ function buildFullHref(actionUrl, originalForm, params) {
   const formData = new FormData(originalForm);
 
   // Copia TODOS os campos corretamente
-  for (const [key, value] of formData.entries()) {
+  formData.forEach((value, key) => {
     url.searchParams.append(key, value);
-  }
+  });
 
   // Sobrescreve com params do jsfcljs
   for (const key in params) {

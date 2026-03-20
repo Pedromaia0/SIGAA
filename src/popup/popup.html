@@ -3,38 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="popup.css" />
-    <script  src="../api/browserApi.js"></script>
+    <script src="../api/browserApi.js"></script>
     <title>SIGAA+</title>
   </head>
 
   <body>
     <header class="header">
-      <img src="../../icons/icon.png" class="logo" />
+      <img src="../../assets/icons/icon.png" class="logo" />
       <h1>SIGAA+</h1>
     </header>
 
-    <div class="option">
-      <label class="switch">
-        <input type="checkbox" id="showTimeTable" />
-        <span class="slider"></span>
-      </label>
-      <span class="label-text">Mostrar horário</span>
+    <!-- Navbar superior -->
+    <nav class="navbar">
+      <button class="tab-button active" data-tab="settings">Configurações</button>
+      <button class="tab-button" data-tab="theme">Temas</button>
+    </nav>
+
+    <!-- Configurações originais, não mexi em nada -->
+    <div class="tab-content" id="settings">
+      <div class="option">
+        <label class="switch">
+          <input type="checkbox" id="showTimeTable" />
+          <span class="slider"></span>
+        </label>
+        <span class="label-text">Mostrar horário</span>
+      </div>
+
+      <div class="option">
+        <label class="switch">
+          <input type="checkbox" id="hideGrades" />
+          <span class="slider"></span>
+        </label>
+        <span class="label-text">Ocultar notas por padrão</span>
+      </div>
+
+      <div class="option">
+        <label class="switch">
+          <input type="checkbox" id="preventDownloads" />
+          <span class="slider"></span>
+        </label>
+        <span class="label-text">Prevenir downloads (reload)</span>
+      </div>
+
+      <div class="option">
+        <label class="switch">
+          <input type="checkbox" id="darkMode" />
+          <span class="slider"></span>
+        </label>
+        <span class="label-text">Modo escuro</span>
+      </div>
     </div>
 
-    <div class="option">
-      <label class="switch">
-        <input type="checkbox" id="hideGrades" />
-        <span class="slider"></span>
-      </label>
-      <span class="label-text">Ocultar notas por padrão</span>
-    </div>
-
-    <div class="option">
-      <label class="switch">
-        <input type="checkbox" id="preventDownloads" />
-        <span class="slider"></span>
-      </label>
-      <span class="label-text">Prevenir downloads (reload)</span>
+    <!-- Nova aba para selecionar tema -->
+    <div class="tab-content" id="theme" style="display:none;">
+      <p>Escolha um tema:</p>
+      <select id="themeSelector">
+        <option value="default">Padrão</option>
+        <option value="cats">Gatos</option>
+        <option value="hello_kitty">Hello Kitty</option>
+        <option value="ducks">Patos</option>
+        <option value="hearts">Corações</option>
+        <option value="space">Universo</option>
+      </select>
     </div>
 
     <script src="popup.js"></script>

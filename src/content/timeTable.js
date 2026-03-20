@@ -388,14 +388,13 @@ function init() {
 browserAPI.storage.onChanged.addListener((changes, area) => {
   if (area !== "local") return;
 
-  if (changes.showTimeTable) {
-    const enabled = changes.showTimeTable.newValue;
+  if (!changes.showTimeTable) return;
+  const enabled = changes.showTimeTable.newValue;
 
-    if (enabled) {
-      init();
-    } else {
-      removeTimeTable();
-    }
+  if (enabled) {
+    init();
+  } else {
+    removeTimeTable();
   }
 });
 

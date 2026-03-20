@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
   "name": "SIGAA+",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Adiciona funcionalidades para o SIGAA",
 
   "icons": {
-    "128": "icons/icon128.png",
-    "750": "icons/icon.png"
+    "128": "assets/icons/icon128.png",
+    "750": "assets/icons/icon.png"
   },
 
   "action": {
@@ -43,11 +43,16 @@
         "src/content/patchJsfLinks.js"
       ],
       "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://sigaa.ufrn.br/sigaa/*"],
+      "js": ["src/api/browserApi.js", "src/content/themeInjection.js"],
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["icons/eye-on.svg", "icons/eye-off.svg"],
+      "resources": ["assets/*", "styles/*"],
       "matches": ["<all_urls>"]
     }
   ]
