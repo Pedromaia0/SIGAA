@@ -6,7 +6,7 @@
 
   "icons": {
     "128": "assets/icons/icon128.png",
-    "750": "assets/icons/icon.png"
+    "753": "assets/icons/icon.png"
   },
 
   "action": {
@@ -61,7 +61,10 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "sigaa-plus@extension"
+      "id": "sigaa-plus@extension",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
     }
   }
 }
