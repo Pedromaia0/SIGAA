@@ -64,7 +64,8 @@ Permite personalizar as páginas do sigaa:
 # Instalação no Navegador
 
 ## Chrome
-A extensão está publicada na Chrome Web Store e pode ser baixada [AQUI](https://chromewebstore.google.com/detail/sigaa+/mhchdndobohnjjcmmlmpmhgligblhmbd).
+
+* A extensão está publicada na Chrome Web Store e pode ser baixada [AQUI](https://chromewebstore.google.com/detail/sigaa+/mhchdndobohnjjcmmlmpmhgligblhmbd).
 
 Para instalar manualmente no chrome:
 
@@ -91,6 +92,8 @@ chrome://extensions
 Após isso a extensão estará ativa no navegador.
 
 ## Firefox
+
+* A extensão está publicada na loja oficial do Firefox e pode ser baixada [AQUI](https://addons.mozilla.org/pt-BR/firefox/addon/sigaa/).
 
 Para instalar manualmente no firefox:
 
